@@ -8,26 +8,28 @@
 <body>
   <p>
     <?php
-    // 配列に値を代入する
+    // ソートする配列を宣言
     $num = [15, 4, 18, 23, 10];
-    // 昇順
-    sort($num);
 
-    // 昇順結果を出力
-    echo '昇順にソートします。<br> ';
-    foreach ($num as $value) {
+    // 関数の設定
+    function sort_2way($array, $order){
+      
+      // 昇順・降順の判定
+      if ($order) {
+        echo '昇順にソートします。'.'<br>';
+        sort($array);
+      } else {
+        echo '降順にソートします。'.'<br>';
+        rsort($array);
+      }
+      foreach ($array as $value) {
         echo $value . '<br>';
+      } 
     }
 
-    // 降順
-    rsort($num);
-
-    // 降順結果を出力
-    echo '降順にソートします。<br> ';
-    foreach ($num as $value) {
-        echo $value . ' <br>';
-    }
+    sort_2way($num,true);
+    sort_2way($num,false);
     ?>
-  </P>
+  </p>
 </body>
 </html>
